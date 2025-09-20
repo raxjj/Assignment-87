@@ -1,30 +1,26 @@
-import { FC, memo, useState } from "react";
+import type { FC } from "react"; 
+import { memo } from "react";
 import { useDispatch } from "react-redux";
 import { happyClick } from "./Action";
 
-type HappyIncremnetProps={};
+const HappyIncremnetor: FC = () => {
+  const dispatch = useDispatch();
 
-const HappyIncremnetor :FC<HappyIncremnetProps>=(props)=>{
+  function increment() {
+    dispatch(happyClick); 
+  }
 
-    const dispatch = useDispatch();
+  return (
+    <div>
+      <h1>Are you happy?</h1>
+      <button
+        onClick={increment}
+        className="bg-orange-700 border-2 text-white p-2"
+      >
+        Yes
+      </button>
+    </div>
+  );
+};
 
-    function increment(){
-        dispatch(happyClick)
-
-    }
-    
-
-    return(
-        <div>
-            <h1>Are you happy</h1>
-            <button
-            onClick={increment}
-            className="bg-orange-700 border-2 text-white p-2">yes</button>
-        
-        </div>
-    );
-}
-
-HappyIncremnetor.defaultProps={};
-
-export default memo(HappyIncremnetor)
+export default memo(HappyIncremnetor);

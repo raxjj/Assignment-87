@@ -1,16 +1,15 @@
-import { FC, memo } from "react";
-import { happycountSelector } from "./Selector";
+import type { FC } from "react";
+import { memo } from "react";
 import { useSelector } from "react-redux";
+import { happycountSelector } from "./Selector";
 
-type HappyTrackerProps={};
+const HappyTracker: FC = () => {
+  const happycount = useSelector(happycountSelector);
+  return (
+    <div className="bg-orange-700 px-8 py-4">
+      You were happy {happycount} times
+    </div>
+  );
+};
 
-const HappyTracker :FC<HappyTrackerProps>=(props)=>{
-     const happycount =useSelector(happycountSelector);
-    return(
-       <div className="bg-orange-700 px-8 py-4">you were happy {happycount} times</div>
-    );
-}
-
-HappyTracker.defaultProps={};
-
-export default memo(HappyTracker)
+export default memo(HappyTracker);

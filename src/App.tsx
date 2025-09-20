@@ -1,23 +1,19 @@
-import React from 'react'
 
-import './App.css'
-import HappyTracker from './HappyTracker'
-import SadTracker from './SadTracker'
-import HappyIncremnet from './HappyIncremnet'
-import SadIncremnetor from './SadIncremnetor'
+import "./App.css";
+import HappyTracker from "./HappyTracker";
+import SadTracker from "./SadTracker";
+import HappyIncremnetor from "./HappyIncremnet"; // ✅ corrected import spelling
+import SadIncremnetor from "./SadIncremnetor";
 
 function App() {
-  
-
   return (
     <>
-    <HappyTracker/>
-    <SadTracker/>
-    <HappyIncremnet/>
-    <SadIncremnetor/>
-      
+      <HappyTracker />
+      <SadTracker />
+      <HappyIncremnetor />
+      <SadIncremnetor />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,27 +1,26 @@
-import { FC, memo } from "react";
-import { sadClick } from "./Action";
+import type { FC} from "react";
+import { memo } from "react";
 import { useDispatch } from "react-redux";
+import { sadClick } from "./Action";
 
-type SadIncremnetProps={};
+const SadIncremnetor: FC = () => {
+  const dispatch = useDispatch();
 
-const SadIncremnetor :FC<SadIncremnetProps>=(props)=>{
-    const dispatch = useDispatch();
+  function increment() {
+    dispatch(sadClick);
+  }
 
-    function increment(){
-        dispatch(sadClick)
+  return (
+    <div>
+      <h1>Are you sad?</h1>
+      <button
+        onClick={increment}
+        className="bg-blue-700 border-2 text-white p-2"
+      >
+        Yes
+      </button>
+    </div>
+  );
+};
 
-    }
-    return(
-        <div>
-            <h1>Are you sad?</h1>
-            <button 
-            onClick={increment}
-            className="bg-blue-700 border-2 text-white p-2">Yes</button>
-        
-        </div>
-    );
-}
-
-SadIncremnetor.defaultProps={};
-
-export default memo(SadIncremnetor)
+export default memo(SadIncremnetor);
